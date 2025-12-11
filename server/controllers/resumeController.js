@@ -1,5 +1,5 @@
-import imagekit from "../configs/imageKit";
-import Resume from "../models/Resume";
+import imagekit from "../configs/imageKit.js";
+import Resume from "../models/Resume.js";
 import fs from 'fs'
 
 //controller for creating new resume
@@ -38,7 +38,7 @@ export const deleteResume = async (req, res) => {
 
 //get user resume by id
 //GET: /api/resumes/get
-export const getResumeId = async (req, res) => {
+export const getResumeById = async (req, res) => {
     try {
         const userId = req.userId;
         const {resumeId} = req.params;
@@ -62,7 +62,7 @@ export const getResumeId = async (req, res) => {
 
 //get user resume by id public
 //GET: /api/resumes/public
-export const getPublicResumeByIs = async (req, res) => {
+export const getPublicResumeById = async (req, res) => {
     try{
         const {resumeId} = req.params;
         const resume = await Resume.findOne({public: true, _id: resumeId})

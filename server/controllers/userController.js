@@ -55,6 +55,10 @@ export const loginUser = async (req, res) => {
         if(!user.comparePassword(password)){
             return res.status(400).json({message:"Incorrect password"})
         }
+        // const isMatch = await user.comparePassword(password);
+        // if (!isMatch) {
+        //     return res.status(400).json({ message: "Incorrect password" });
+        // }
 
         //return success message
         const token = generateToken(user._id);
